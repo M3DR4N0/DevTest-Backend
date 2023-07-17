@@ -23,6 +23,7 @@ namespace DevTestBackend.Service.Clients
         {
             var success = DeleteClientResult.Success.Instance;
 
+            await _clientRepository.BulkDeleteAsync(id).ConfigureAwait(false);
             await _clientRepository.DeleteAsync(id).ConfigureAwait(false);
 
             success.Message = "Successfully Deleted";
